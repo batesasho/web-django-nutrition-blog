@@ -7,7 +7,6 @@ SECRET_KEY = secret_info.get('SECRET_KEY')
 
 DEBUG = secret_info.get('DEBUG', False)
 
-
 ALLOWED_HOSTS = (
         '127.0.0.1',
         'localhost',
