@@ -1,0 +1,73 @@
+html {
+    display: inline-flex;
+    align-items: center;
+    align-content: flex-start;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    background: rgb(117, 207, 213);
+    background: linear-gradient(90deg, rgba(117, 207, 213, 1) 0%, rgba(20, 105, 110, 1) 49%, rgba(34, 168, 179, 1) 100%);
+    margin-top: 1rem;
+
+}
+
+
+.user_login {
+    background-image: url('https://images.unsplash.com/photo-1523821741446-edb2b68bb7a0?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHw%3D&w=1000&q=80');
+    background-repeat: no-repeat;
+    background-position:left center;
+    background-size: cover;
+    /*background: rgb(30, 211, 223);*/
+    /*background: linear-gradient(90deg, rgba(30, 211, 223, 1) 0%, rgba(28, 163, 171, 1) 49%, rgba(27, 69, 164, 1) 100%);*/
+
+    color: black;
+    border-color: black;
+    border-style: solid;
+    border-radius: 2rem;
+    height: 70vh;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 2rem;
+    /*align-items: flex-start;*/
+    align-content: flex-end;
+
+
+
+}
+
+
+h1 {
+
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.user_login .first_name, .user_login .email_register, .user_login .user_info .password {
+    text-align: left;
+    border-color: #2c5282;
+    border-radius: 0.3rem;
+    padding: 0.5rem;
+    width: 100px;
+
+
+}
+
+.user_info {
+    display: inline-flex;
+    justify-content: space-between;
+    align-content:center;
+}
+
+.user_login .user_info {
+    font-size: 1.5rem;
+}
+
+.btn_create_account {
+    font-size: 1rem;
+    border-color: black;
+    border-radius: 0.4rem;
+    font-weight: bold;
+    /*color: black;*/
+}

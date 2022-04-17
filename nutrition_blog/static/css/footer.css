@@ -1,0 +1,104 @@
+.footer {
+    padding: 1rem 0.5rem;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 6rem;
+    margin-top: 1rem;
+    z-index: 2000;
+    background: rgb(218, 232, 233);
+    background: linear-gradient(90deg, rgba(218, 232, 233, 1) 0%, rgba(177, 214, 216, 1) 19%, rgba(218, 232, 233, 1) 100%);
+    max-width: 2000px;
+}
+
+.footer .info .socials {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 0.5rem;
+}
+
+.footer .info .socials a,
+.footer .info p {
+    font-weight: bold;
+    font-family: Avenir Next LT Pro Light, sans-serif;
+    text-align: center;
+}
+
+.footer .info .socials a{
+    font-size: 18px;
+}
+.footer .info .socials .socials__item:last-child {
+    background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%),
+    radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
+    linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
+    border-radius: 80px;
+
+}
+.footer .info .socials .socials__item:first-child::before {
+    content: '';
+    color: blue;
+
+}
+
+
+
+@media screen and (min-width: 768px) {
+    .footer {
+        padding: 2.5rem 4rem;
+    }
+}
+
+/*    display: grid;*/
+/*    grid-template-columns: repeat(2, 1fr);*/
+/*    gap: 1rem;*/
+/*  }*/
+
+/*  .footer .info {*/
+/*    grid-column: 1 / span 2;*/
+/*  }*/
+/*}*/
+
+/*@media screen and (min-width: 1200px) {*/
+/*  .footer {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    flex-wrap: wrap;*/
+/*    height: 500px;*/
+/*    grid-template-columns: unset;*/
+/*    gap: 1rem;*/
+/*  }*/
+
+/*  .footer .navi-group {*/
+/*    margin-bottom: 0px;*/
+/*  }*/
+
+/*  .footer .info {*/
+/*    grid-column: unset;*/
+/*  }*/
+/*}*/
+
+@media screen and (min-width: 1600px) {
+  .footer {
+    height: 340px;
+  }
+}
+
+/*@media screen and (min-width: 1800px) {*/
+/*  .footer {*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    height: auto;*/
+/*    gap: 2rem;*/
+/*  }*/
+
+/*  .footer .info{*/
+/*    flex-grow: 2;*/
+/*  }*/
+/*}*/

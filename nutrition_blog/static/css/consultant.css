@@ -1,0 +1,52 @@
+
+main {
+    display: flex;
+    flex-direction: column;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+.consultant {
+    margin-top: 3rem;
+    width: 80vw;
+    text-align: justify;
+    padding-left: 4rem;
+    padding-top: 1rem;
+
+}
+
+.email_sending {
+    padding-left: 4rem;
+    padding-top: 3rem;
+    text-align: center;
+
+}
+
+.message_announce {
+    margin-bottom: 2rem;
+}
+
+form #id_subject  {
+    margin-left: -12.5rem;
+    margin-bottom: 1rem;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    align-items: stretch;
+
+}
+
+.nutrition-span{
+    font-weight: bold;
+    font-style: italic;
+}
+
+.nutrition-span-question{
+    font-style: italic;
+    font-size: 1.25rem;
+    font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+}

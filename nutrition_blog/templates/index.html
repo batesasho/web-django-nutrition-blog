@@ -1,0 +1,132 @@
+{% extends 'base/base.html' %}
+
+{% block page_content %}
+
+    <section id='articleSection'>
+
+        <ul class="articles">
+
+            {% for article in page_obj %}
+                <li class="article__wrapper">
+
+                <article class='article'>
+                    <div class="article__img__wrapper">
+                        <a href="#">
+                            <img class='article__img'
+                                 src="{{ article.article_url_image }}"
+                                 alt="">
+                        </a> <!--https://cfpen.org/wp-content/uploads/2019/05/Eat_Healthy_Blog_15May19.jpg-->
+                    </div>
+                    <span class='tag article__tag_tips'>{{ article.article_tag_name }}</span>
+                    <h3 class='article__title'>{{ article.article_title }}</h3>
+                    <p class="article__desc">{{ article.description }} </p>
+
+                </article>
+            {% endfor %}
+            </li>
+
+
+
+            <!--
+            <li>
+                <article class='article'>
+                    <div class="article__img__wrapper">
+                        <a href="https://dir.bg">
+                            <img class='article__img'
+                                 src="https://foodwatch.com.au/images/stories/super_foods/Mixed_Fruits.jpg"
+                                 alt="">
+                        </a>
+                    </div>
+                    <span class='tag article__tag_fixing'>Food Advices</span>
+                    <h3 class='article__title'>What we should not eat?</h3>
+                    <p class="article__desc"></p>
+                </article>
+            </li>
+
+            <li>
+                <article class='article'>
+                    <div class="article__img__wrapper">
+                        <a href="https://news.bg">
+                            <img class='article__img'
+                                 src="https://dentalhealthandcare.com/wp-content/uploads/2020/05/eat-for-healthy-teeth.jpg"
+                                 alt="">
+                        </a>
+                    </div>
+                    <span class='tag article__tag_lesson'>Food Program</span>
+                    <h3 class='article__title'>Your personal food program...</h3>
+                    <p class="article__desc"></p>
+
+                </article>
+            </li> -->
+
+            <!--                <li>
+                           <article class='article'>
+                               <div class="article__img__wrapper">
+                                   <img class='article__img'
+                                        src="https://cfpen.org/wp-content/uploads/2019/05/Eat_Healthy_Blog_15May19.jpg"
+                                        alt="">
+                               </div>
+                               <span class='tag article__tag_tips'>Tips</span>
+                               <h3 class='article__title'>We need...</h3>
+                               <p class="article__desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad asperiores aut
+                                   cumque, debitis ea explicabo, laborum, molestias provident quae quo ratione sed ullam veniam
+                                   voluptas voluptate? Alias harum quia saepe. </p>
+
+                           </article>
+                       </li>
+
+                       <li>
+                           <article class='article'>
+                               <div class="article__img__wrapper">
+                                   <img class='article__img'
+                                        src="https://foodwatch.com.au/images/stories/super_foods/Mixed_Fruits.jpg"
+                                        alt="">
+                               </div>
+                               <span class='tag article__tag_fixing'>Best Practices</span>
+                               <h3 class='article__title'>What we should not eat?</h3>
+                               <p class="article__desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad asperiores aut
+                                   cumque, debitis ea explicabo, laborum, molestias provident quae quo ratione sed ullam veniam
+                                   voluptas voluptate? Alias harum quia saepe. </p>
+                           </article>
+                       </li>
+
+                       <li>
+                           <article class='article'>
+                               <div class="article__img__wrapper">
+                                   <img class='article__img'
+                                        src="https://dentalhealthandcare.com/wp-content/uploads/2020/05/eat-for-healthy-teeth.jpg"
+                                        alt="">
+                               </div>
+                               <span class='tag article__tag_lesson'>Food</span>
+                               <h3 class='article__title'>Something about food...</h3>
+                               <p class="article__desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad asperiores aut
+                                   cumque, debitis ea explicabo, laborum, molestias provident quae quo ratione sed ullam veniam
+                                   voluptas voluptate? Alias harum quia saepe. </p>
+
+                           </article>
+                       </li>-->
+        </ul>
+    </section>
+{% endblock %}
+
+{% block articles_paginator %}
+    {% if page_obj.paginator.count > 3 %}
+        <div class="pagination">
+            <span class="paginator-next-link">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                {% else %}
+                    <a href="/" style="pointer-events: none">Previous</a>
+                {% endif %}
+                <span class="current">
+                    {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">Next</a>
+                {% else %}
+                    <a href="" style="pointer-events: none">Next</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+{% endblock %}

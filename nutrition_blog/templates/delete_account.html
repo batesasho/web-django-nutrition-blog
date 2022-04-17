@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/static/css/delete_profile.css">
+    <title>Edit Your profile</title>
+</head>
+
+<body>
+
+<h1>Do you want to delete your user account ?</h1>
+<form class='user_login' action="{% url 'delete profile' object.pk %}" method="post">
+    {% csrf_token %}
+
+    <div class="user_info_wrapper">
+        <label class="user_info first_name" for="firstName">
+            First Name:
+        </label>
+        {{ profile_detail.first_name }}<!--<input type="text" name="first_name" maxlength="20" id="firstName" class="first_name">-->
+
+        <label class="user_info last_name" for="lastName">
+            Last Name:
+        </label><!--<input type="text" name="last_name" maxlength="20" id="lastName" class="last_name">-->
+        {{ profile_detail.last_name }}
+        <label class="user_info age" for="age">
+            Age:
+        </label><!--<input type="number" name="age" maxlength="20" id="age" class="age">-->
+        {{ profile_detail.age }}
+        <!--        <label class="user_info age" for="gender">
+            Gender: {{ profile_detail.gender }}
+        </label><input type="text" name="gender" maxlength="20" id="gender" class="gender">
+        -->
+
+    </div>
+
+
+    <img class='photo' src="{{ profile_detail.profile_image.url }}"
+         alt="profile image">
+
+
+    <button type="submit" class="btn_edit_account">Delete Account</button>
+
+
+</form>
+
+
+</body>
+
+</html>
+
+

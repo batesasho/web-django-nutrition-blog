@@ -1,0 +1,38 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+
+    <h6>What we should know about nutrition?</h6>
+
+    <section class='consultant'>
+        <p class="consultant information">
+            <span class="nutrition-span">Nutrition</span> is a science focused on the interactions between living organisms and their food and the
+            biological processes used by the body to break down, absorb, and utilize nutrients. Nutrients are the
+            chemical substances contained in food that are necessary to sustain life. They play many key roles in the
+            body, which can be broken down into three main categories: energy, structure, and function. For example,
+            nutrients provide us the energy we need to move, think, digest, rebuild, and heal. They provide the basic
+            building blocks we need to build our cells, tissues, organs, and systems. And they help create the enzymes
+            and hormones we need to function properly. Eating a properly prepared, nutrient-dense, whole food diet
+            provides the fuel and essential building blocks the body needs to maintain health and balance. Conversations
+            around what to eat and what not to eat dominate the media, and apps to crunch the numbers on calories and
+            nutrients have become part of many people’s daily routine. The intense focus on food and diets in the world
+            today is evidence that we recognize food is a key element of health—but the fixation on its impact on bodily
+            appearance shows we have failed to understand food’s true value as a primary source of nourishment for the
+            body, mind, and soul.<br>
+            <span class="nutrition-span-question"><br>Are you ready to start your health journey with me?</span>
+
+        </p>
+
+    </section>
+
+    <section class="email_sending">
+        <h4 class="message_announce">Get in contact with me for healthy advices and information</h4>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="form-actions">
+                <button type="submit">Send</button>
+            </div>
+        </form>
+    </section>
+
+{% endblock %}
