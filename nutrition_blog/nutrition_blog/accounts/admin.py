@@ -8,22 +8,29 @@ UserModel = get_user_model()
 
 @admin.register(Profile)
 class AppUserAdmin(admin.ModelAdmin):
-    list_display = ("first_name", 'last_name', 'gender', 'age',)
+    list_display = ('first_name', 'last_name', 'gender', 'age', 'user_email_address',)
 
-    def get_form(self, request, obj = None, **kwargs):
-        form = super().get_form(request, obj, **kwargs)
-        is_superuser = request.user.is_superuser
+    list_filter = ('first_name',)
+    ordering = ('first_name',)
 
-        if not is_superuser:
-            form.base_fields['user'].disabled = True
+    # def get_form(self, request, obj = None, **kwargs):
+    #     form = super().get_form(request, obj, **kwargs)
+    #     is_superuser = request.user.is_superuser
+    #
+    #     if not is_superuser:
+    #         form.base_fields['user'].disabled = True
+    #
+    #     return form
 
-        return form
+    @staticmethod
+    def user_email_address(obj):
+        return obj.user.email
 
 
 # preventing non-superuser to grant superuser rights i.e even changing in the User model
 @admin.register(UserModel)
 class AppUserAdmin(UserAdmin):
-    list_display = ('email',  # 'article_name', 'article_tag', 'user_first_name',
+    list_display = ('email', 'is_staff', 'is_superuser',  # 'article_name', 'article_tag', 'user_first_name',
                     # 'user_last_name', 'user_age', 'user_gender',
                     )
     list_filter = ('is_staff', 'is_superuser', 'groups')
@@ -75,12 +82,12 @@ class AppUserAdmin(UserAdmin):
         # fix - any user with a change permission on the User model can make any user a superuser
         # |= update between two sets - set2 add to set1 any elements in set2 that set1 does not already have
         # if a user is superuser we add email and is_superuser fields i.e preventing other users to become superusers
-        if not is_superuser:
-            disabled_fields |= {
-                    'email',
-                    'is_superuser',
-
-            }
+        # if not is_superuser:
+        #     disabled_fields |= {
+        #             'email',
+        #             'is_superuser',
+        #
+        #     }
 
         # Prevent non-superusers from editing their own permissions
         # - When obj is None, the form is used to create a new user.

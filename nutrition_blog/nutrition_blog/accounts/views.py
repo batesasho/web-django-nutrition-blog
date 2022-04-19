@@ -1,11 +1,10 @@
-from django.contrib import messages
 from django.contrib.auth import mixins as auth_mixins, get_user_model
 from django.contrib.auth import views as auth_views, login
 from django.urls import reverse_lazy, reverse
 from django.views import generic as views
 
 from nutrition_blog.accounts.forms.user_form import UserRegistrationForm, DeleteUserProfileBasicInfoForm, \
-    EditUserProfileBasicInfoForm
+    EditUserProfileBasicInfoForm, UserPasswordResetForm, UserPasswordResetConfirmForm, LoginUserForm
 from nutrition_blog.accounts.models import Profile
 
 UserModel = get_user_model()
@@ -34,6 +33,7 @@ class UserRegistrationView(views.CreateView):
 
 class UserLoginView(auth_views.LoginView):
     template_name = 'login_page.html'
+    form_class = LoginUserForm
 
     # def get_success_url(self):
     #     return reverse_lazy("user home page")
@@ -78,9 +78,6 @@ class EditUserProfileView(auth_mixins.LoginRequiredMixin, views.UpdateView):
     template_name = 'profile_edit.html'
     form_class = EditUserProfileBasicInfoForm
 
-    # success_url = reverse_lazy('user home page')
-    # fields = ('first_name', "last_name", "age", 'gender', 'profile_image')
-
     def get_success_url(self):
         return reverse('user home page', kwargs = {
                 "pk": self.request.user.pk,
@@ -100,11 +97,13 @@ class DeleteUserProfileView(auth_mixins.LoginRequiredMixin, views.DeleteView):
 
 
 class UserPasswordResetView(auth_views.PasswordResetView):
+    form_class = UserPasswordResetForm
 
     template_name = 'password_reset.html'
 
 
 class UserPasswordResetConfirmView(auth_views.PasswordResetConfirmView):
+    form_class = UserPasswordResetConfirmForm
     template_name = "password_reset_confirm.html"
 
 

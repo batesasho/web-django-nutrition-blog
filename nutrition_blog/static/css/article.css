@@ -54,6 +54,7 @@
 
 
 .articles {
+    height: 100vh;
     display: inline-flex;
     flex-direction: column;
     justify-content: space-between;
@@ -61,7 +62,11 @@
     align-items: center;
     gap: 1.5rem;
     margin-left: 3.5rem;
-    margin-top: 7rem;
+    margin-top: -4rem;
+    padding: 4rem;
+    margin-bottom: 2rem;
+
+
 
 }
 
@@ -96,7 +101,7 @@
 
     font-size: 16px;
     font-weight: 300;
-    color: #718096;
+    color: #15243a;
     line-height: 22px;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -142,7 +147,7 @@
 
 @media screen and (min-width: 360px) {
     .articles {
-        margin-left: 5rem;
+        margin-left: 2rem;
     }
 
     .article .article__desc {
@@ -155,8 +160,8 @@
 
 @media screen and (min-width: 400px) {
     .articles {
-        margin-left: 6.5rem;
-        margin-top: 8rem;
+        margin-left: 4rem;
+        margin-top: -4rem;
     }
 
     .article .article__desc {
@@ -166,7 +171,7 @@
 
 @media screen and (min-width: 460px) {
     .articles {
-        margin-left: 8rem;
+        margin-left: 4rem;
     }
 
     .article .article__desc {
@@ -177,8 +182,8 @@
 
 @media screen and (min-width: 600px) {
     .articles {
-        margin-left: 5rem;
-        margin-top: 9rem;
+        margin-left: 3rem;
+        margin-top: 4rem;
 
     }
 
@@ -193,8 +198,8 @@
 
 @media screen and (min-width: 640px) {
     .articles {
-        margin-left: 7rem;
-        margin-top: 9rem;
+        margin-left: 4rem;
+        margin-top: 6rem;
     }
 
 
@@ -244,7 +249,7 @@
     }
 
     .articles {
-        margin-left: 12rem;
+        margin-left: 8rem;
         margin-top: 9rem;
     }
 
@@ -274,7 +279,8 @@
 
 @media screen and (min-width: 1024px ) {
     .articles {
-        margin-left: 20rem;
+        margin-left: 5rem;
+        width: 50vw;
 
     }
 
@@ -324,7 +330,7 @@
 @media screen and (min-width: 1500px ) {
     .articles {
         margin-left: auto;
-        margin-top: 10rem;
+        margin-top: 6rem;
         justify-content: center;
         gap: 3.9rem;
 

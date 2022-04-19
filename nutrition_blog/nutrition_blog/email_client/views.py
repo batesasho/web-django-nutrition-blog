@@ -47,7 +47,7 @@ class ConsultantView(auth_mixin.LoginRequiredMixin, views.FormView):
             try:
                 message += f'\n\nThis message was sent by {from_email}'
                 send_mail(subject, message, from_email, to_email)
-            except BadHeaderError:  # security check reasons
+            except BadHeaderError:  # security check reasons -> avoid header injection
                 return HttpResponse('Invalid header found.')
 
         return super().form_valid(form)

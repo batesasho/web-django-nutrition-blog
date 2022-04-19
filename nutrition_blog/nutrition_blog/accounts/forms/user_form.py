@@ -58,6 +58,15 @@ class UserRegistrationForm(auth_forms.UserCreationForm):
         fields = ('first_name', 'email',)
 
 
+class LoginUserForm(auth_forms.AuthenticationForm):
+    error_messages = {
+            "invalid_login": (
+                    "Please enter a correct %(username)s and password."
+            ),
+            "inactive": ("This account is inactive."),
+    }
+
+
 class EditUserProfileBasicInfoForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
@@ -144,3 +153,26 @@ class DeleteUserProfileBasicInfoForm(forms.ModelForm):
     class Meta:
         model = Profile
         exclude = ('user',)
+
+
+class UserPasswordResetForm(auth_forms.PasswordResetForm):
+    '''
+     checking for existing email address in the database before reset the password
+    '''
+
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if not UserModel.objects.filter(email__iexact = email, is_active = True).exists():
+            msg = ("There is no user registered with the specified e-mail address, please enter a registered email.")
+            self.add_error('email', msg)
+        return email
+
+
+# !!!! Django Ratelimit - security check i.e if a user sends more than certain times reset's request he will be rejected
+
+
+class UserPasswordResetConfirmForm(auth_forms.SetPasswordForm):
+    def __init__(self, user, *args, **kwargs):
+        super().__init__(user, *args, **kwargs)
+        self.fields['new_password1'].help_text = None
+        self.fields['new_password2'].help_text = None

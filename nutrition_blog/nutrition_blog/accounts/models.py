@@ -84,7 +84,7 @@ class Profile(models.Model):
             validators = (
                     ValidateMaxSizeMB,
             ),
-            blank = True,
+
     )
     gender = models.CharField(
             max_length = max(len(x) for x, _ in GENDERS),

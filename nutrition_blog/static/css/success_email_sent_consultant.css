@@ -1,0 +1,14 @@
+
+html {
+
+    background-color: #f7fafc;
+    font-family: "Open Sans", sans-serif;
+}
+
+.reset__message {
+    text-align: center;
+    margin-left: 0rem;
+    margin-top: -8rem;
+    font-size: 2rem;
+    font-weight: bold;
+}

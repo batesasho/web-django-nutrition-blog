@@ -1,20 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends 'base/base.html' %}
+{% block page_content %}
 
-
-<h2>Thank you {{ user_name|capfirst }}! Your email was sent !</h2>
-
-<script>
-    setTimeout(function () {
-        window.location.href = '{% url 'consultant'  %}';
-    }, 3000);
-</script>
-<p>Web page redirects after 3 seconds.</p>
-
-</body>
-</html>
+<div class = "reset__message">
+    <h2>Thank you {{ user_name|capfirst }}! Your email was sent ! </h2>
+    <h4><br>We will contact you soon for session appointment</h4>
+    <script>
+        setTimeout(function () {
+            window.location.href = '{% url 'consultant'  %}';
+        }, 5000);
+    </script>
+    <p>Web page redirects after 5 seconds.</p>
+</div>
+{% endblock %}

@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.contrib.auth import mixins as auth_mixins
 from django.shortcuts import redirect
 from django.views import generic as views
 from django.views.generic import detail as detail_mixin
@@ -18,7 +19,7 @@ class WelcomePageView(views.TemplateView):
     # def dispatch check whether the user has access to the specific view, that's in-built !!!!
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            return redirect('user home page')
+            return redirect('user home page', pk = self.request.user.pk)
         return super().dispatch(request, *args, **kwargs)
 
 
@@ -37,6 +38,7 @@ class UserDetailView(detail_mixin.SingleObjectMixin,
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['usermodel'] = self.object
+
         return context
 
     def get_queryset(self):
@@ -57,5 +59,5 @@ class UserDetailView(detail_mixin.SingleObjectMixin,
     #     return profile
 
 
-class AboutTemplateView(views.TemplateView):
+class AboutTemplateView(auth_mixins.LoginRequiredMixin, views.TemplateView):
     template_name = 'about_page.html'

@@ -1,3 +1,6 @@
+{% load articles_check %}
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,18 +8,18 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/static/css/reset.css">
     <link rel="stylesheet" href="/static/css/base.css">
+    <!--<link rel="stylesheet" href="/static/css/reset.css">
     <link rel="stylesheet" href="/static/css/components.css">
     <link rel="stylesheet" href="/static/css/footer.css">
     <link rel="stylesheet" href="/static/css/navigation.css">
     <link rel="stylesheet" href="/static/css/typography.css">
     <link rel="stylesheet" href="/static/css/article.css">
-    <link rel="stylesheet" href="/static/css/about_me.css">
     <link rel="stylesheet" href="/static/css/consultant.css">
     <link rel="stylesheet" href="/static/css/hero.css">
     <link rel="stylesheet" href="/static/css/edit_profile.css">
     <link rel="stylesheet" href="/static/css/delete_account.css">
+    <link rel="stylesheet" href="/static/css/login.css">-->
 
     <title>Nutritional Therapy Association USA - Ivelina Genova Nutrition</title>
 </head>
@@ -32,21 +35,25 @@
 
 
     <!--    <button class="btn mobile-menu"><i class="fas fa-bars"></i></button>-->
-
-    <nav class="header__nav">
+    {% if user.is_authenticated %}
+        <nav class="header__nav">
         <ul class="nav__list">
-            {% if article.article_title %}
+        {% with user.articles_set.all as articles_list %}
+            {% if articles_list %}
                 <li class="nav__item">
                     <a class="nav__itemlink" href="{% url 'user home page' user.pk %}">Home</a>
                 </li>
             {% endif %}
+
             <li class="nav__item">
                 <a class="nav__itemlink" href="{% url 'consultant' %}">Consultants</a>
+
             </li>
 
             <li class="nav__item">
                 <a class="nav__itemlink" href="{% url 'edit profile' user.pk %}">Profile</a>
             </li>
+
             <li class="nav__item">
                 <a class="nav__itemlink" href="{% url 'about page' %}">About</a>
             </li>
@@ -54,21 +61,24 @@
             <li class="nav__item">
                 <a class="nav__itemlink" href="{% url 'user logout' %}">Log out</a>
             </li>
+        {% endwith %}
+    {% endif %}
 
-            <!--            <li class="nav__item">
-                <a class="nav__itemlink" href="blog_page.html">Blog</a>
-            </li>
-            <li class="nav__item">
-                <a class="nav__itemlink" href="book_page.html">Book</a>
-            </li>
-            <li class="nav__item">
-                <a class="nav__itemlink" href="resources_page.html">Resources</a>
-                            <li class="nav__item">
-                <a class="nav__itemlink" href="contacts_page.html">Contact</a>
-            </li>
-            </li>-->
 
-        </ul>
+    <!--            <li class="nav__item">
+        <a class="nav__itemlink" href="blog_page.html">Blog</a>
+    </li>
+    <li class="nav__item">
+        <a class="nav__itemlink" href="book_page.html">Book</a>
+    </li>
+    <li class="nav__item">
+        <a class="nav__itemlink" href="resources_page.html">Resources</a>
+                    <li class="nav__item">
+        <a class="nav__itemlink" href="contacts_page.html">Contact</a>
+    </li>
+    </li>-->
+
+    </ul>
 
     </nav>
 </header>

@@ -1,11 +1,23 @@
 @import url('https://use.fontawesome.com/releases/v5.15.4/css/all.css');
 @import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Open+Sans:wght@300;400;500;700&display=swap");
+@import url("./profile_edit.css");
 @import url("./reset.css");
 @import url("./typography.css");
-/*@import url("./components.css");*/
+@import url("./components.css");
 @import url("./navigation.css");
 @import url("./footer.css");
 @import url("./article.css");
+@import url("./about_me.css");
+@import url("./footer.css");
+@import url("./navigation.css");
+@import url("./consultant.css");
+@import url("./hero.css");
+@import url("./delete_account.css");
+@import url("./login.css");
+@import url("./consultant.css");
+/*@import url("./home.css");*/
+@import url("./password_reset_confirmed.css");
+@import url("./success_email_sent_consultant.css");
 
 :root {
     --color-primary: #F8EFF9;
@@ -23,8 +35,8 @@
 
 }
 
-body {
-
+body, main {
+    height: 100vh;
     background-color: #f7fafc;
     font-family: "Open Sans", sans-serif;
 }
@@ -77,7 +89,7 @@ h6 {
 
 .header__logo {
     margin-left: 1rem;
-     max-width: 2000px;
+    max-width: 2000px;
 
 }
 
@@ -87,7 +99,7 @@ h6 {
     font-family: Mistral, sans-serif;
     margin-bottom: 0.1rem;
     margin-left: 18%;
-     max-width: 2000px;
+    max-width: 2000px;
 
 
 }
@@ -120,7 +132,7 @@ h6 {
 /*}*/
 
 @media screen and (min-width: 460px) {
-        .header__logo_name {
+    .header__logo_name {
         font-size: 28px;
         margin-left: -1rem;
     }
@@ -182,7 +194,6 @@ h6 {
 }
 
 
-
 @media screen and (min-width: 768px) {
 
     .header__logo_name {
@@ -223,7 +234,6 @@ h6 {
 
 
 /*}*/
-
 
 
 /*@media (orientation: landscape) {*/

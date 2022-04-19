@@ -29,7 +29,7 @@ main {
     width: 20vw;
     display: inline-flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     padding: 3rem;
     /*align-items: flex-start;*/
     align-content: center;
@@ -75,7 +75,7 @@ h1 {
 
 .btn_delete_account {
     align-self: center;
-    margin-left: -1rem;
+    margin-right: 1rem;
 
 }
 
@@ -83,12 +83,4 @@ h1 {
     align-self: center;
     font-weight: bold;
 
-}
-
-.errorlist {
-    font-size: 1rem;
-    font-weight: bold;
-    font-style: italic;
-    margin-top: -4rem ;
-    width: 2rem;
 }
