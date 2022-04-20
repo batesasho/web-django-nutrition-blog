@@ -32,6 +32,7 @@ WEB_APP = (
 
 THIRD_PARTY_APP = (
         'rest_framework',
+        'django_celery_results',
         # 'crispy_forms',
 )
 
@@ -120,3 +121,10 @@ EMAIL_HOST_USER = secret_info.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = secret_info.get('EMAIL_HOST_PASSWORD')
 
 # CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'

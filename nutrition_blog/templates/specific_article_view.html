@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+
+
+    <section id='articleSection_user_view'>
+
+        <ul class="articles_user_view">
+            <li class="article__wrapper_user_view">
+
+                <article class='article_user_view'>
+                    <div class="article__img__wrapper_user_view">
+
+                        <img class='article__img_user_view'
+                             src="{{ articles.article_url_image }}"
+                             alt="">
+                        </a> <!--https://cfpen.org/wp-content/uploads/2019/05/Eat_Healthy_Blog_15May19.jpg-->
+                    </div>
+{#                    <span class='tag_user_view article__tag_tips_user_view'>{{ articles.article_tag_name }}</span>#}
+                    <h3 class='article__title_user_view'>{{ articles.article_title }}</h3>
+                    <p class="article__desc_user_view">{{ articles.description }} </p>
+
+                </article>
+            </li>
+        </ul>
+    </section>
+
+
+{% endblock %}
+
+

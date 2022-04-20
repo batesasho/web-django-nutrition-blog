@@ -4,6 +4,8 @@ from django.shortcuts import redirect
 from django.views import generic as views
 from django.views.generic import detail as detail_mixin
 
+from nutrition_blog.web.models import Articles
+
 UserModel = get_user_model()
 
 
@@ -59,5 +61,11 @@ class UserDetailView(detail_mixin.SingleObjectMixin,
     #     return profile
 
 
-class AboutTemplateView(auth_mixins.LoginRequiredMixin, views.TemplateView):
+class AboutTemplateView(views.TemplateView):
     template_name = 'about_page.html'
+
+
+class ArticleUserView(auth_mixins.LoginRequiredMixin, views.DetailView):
+    template_name = "specific_article_view.html"
+    model = Articles
+

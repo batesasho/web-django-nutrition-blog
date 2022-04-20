@@ -11,7 +11,7 @@
 
                 <article class='article'>
                     <div class="article__img__wrapper">
-                        <a href="#">
+                        <a href="{% url "article view" article.pk %}">
                             <img class='article__img'
                                  src="{{ article.article_url_image }}"
                                  alt="">
