@@ -4,8 +4,8 @@ from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
 from django.views import generic as views
 from django.urls import reverse_lazy
-
 from .forms import ContactForm
+from ..secret_info import EMAIL_ADDRESS
 
 UserModel = get_user_model()
 
@@ -42,7 +42,7 @@ class ConsultantView(auth_mixin.LoginRequiredMixin, views.FormView):
             subject = form.cleaned_data['subject']
             from_email = self.request.user.email
             message = form.cleaned_data['message']
-            to_email = ['iv.healthy.blog@gmail.com']
+            to_email = [EMAIL_ADDRESS]
 
             try:
                 message += f'\n\nThis message was sent by {from_email}'
@@ -61,4 +61,3 @@ class SuccessEmailSentView(auth_mixin.LoginRequiredMixin, views.TemplateView):
         user_name = self.request.user.profile.first_name
         context['user_name'] = user_name
         return context
-

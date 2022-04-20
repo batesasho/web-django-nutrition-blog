@@ -19,6 +19,7 @@ class UserRegistrationView(views.CreateView):
     # auto login when user register
     def form_valid(self, form):
         user_valid = super().form_valid(form)
+
         login(self.request, self.object)
         return user_valid
 
