@@ -6,3 +6,6 @@ urlpatterns = (
         path('consultant/', ConsultantView.as_view(), name = 'consultant'),
         path('success/', SuccessEmailSentView.as_view(), name = 'success'),
 )
+
+
+

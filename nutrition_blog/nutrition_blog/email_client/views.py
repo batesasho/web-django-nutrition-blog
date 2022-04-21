@@ -1,14 +1,12 @@
+from django.dispatch import Signal
 from django.contrib.auth import get_user_model
 from django.contrib.auth import mixins as auth_mixin
-from django.core.mail import send_mail, BadHeaderError
-from django.http import HttpResponse
 from django.views import generic as views
 from django.urls import reverse_lazy
 from .forms import ContactForm
 from ..secret_info import EMAIL_ADDRESS
 
 UserModel = get_user_model()
-
 
 # def contact_view(request):
 #     if request.method == 'GET':
@@ -32,6 +30,9 @@ UserModel = get_user_model()
 #     return render(request, "consultant_page.html", {'form': form})
 
 
+consultant_form_done = Signal()
+
+
 class ConsultantView(auth_mixin.LoginRequiredMixin, views.FormView):
     template_name = "consultant_page.html"
     success_url = reverse_lazy('success')
@@ -39,16 +40,25 @@ class ConsultantView(auth_mixin.LoginRequiredMixin, views.FormView):
 
     def form_valid(self, form):
         if form.is_valid():
+            first_name = self.request.user.profile.first_name
             subject = form.cleaned_data['subject']
             from_email = self.request.user.email
             message = form.cleaned_data['message']
+            message += f'\n\nThis message was sent by {first_name.capitalize()} with email address {from_email}'
             to_email = [EMAIL_ADDRESS]
+            consultant_form_done.send(
+                    instance = form,
+                    sender = self.__class__, created = True,
+                    subject = subject, from_email = from_email,
+                    message = message, to_email = to_email,
 
-            try:
-                message += f'\n\nThis message was sent by {from_email}'
-                send_mail(subject, message, from_email, to_email)
-            except BadHeaderError:  # security check reasons -> avoid header injection
-                return HttpResponse('Invalid header found.')
+            )
+            #
+            # try:
+            #     message += f'\n\nThis message was sent by {from_email}'
+            #     send_mail(subject, message, from_email, to_email)
+            # except BadHeaderError:  # security check reasons -> avoid header injection
+            #     return HttpResponse('Invalid header found.')
 
         return super().form_valid(form)
 

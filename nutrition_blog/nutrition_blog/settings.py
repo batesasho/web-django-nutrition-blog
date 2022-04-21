@@ -31,9 +31,9 @@ WEB_APP = (
 )
 
 THIRD_PARTY_APP = (
-        'rest_framework',
+
         'django_celery_results',
-        # 'crispy_forms',
+
 )
 
 INSTALLED_APPS = WEB_APP + DJANGO_APPS + THIRD_PARTY_APP
@@ -119,8 +119,6 @@ EMAIL_PORT = secret_info.get('EMAIL_port')
 EMAIL_USE_TLS = secret_info.get('EMAIL_USE_TLS')
 EMAIL_HOST_USER = secret_info.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = secret_info.get('EMAIL_HOST_PASSWORD')
-
-# CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
