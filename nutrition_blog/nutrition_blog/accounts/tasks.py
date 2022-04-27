@@ -8,8 +8,10 @@ from nutrition_blog.secret_info import EMAIL_ADDRESS
 
 @shared_task
 def send_email_successful_registration(instance_pk):
-    email = AppUser.objects.get(pk = instance_pk).email
-    first_name = Profile.objects.get(pk = instance_pk).first_name
+    email = AppUser.objects.\
+        get(pk = instance_pk).email
+    first_name = Profile.objects\
+        .get(pk = instance_pk).first_name
 
     subject = "Account register confirmation"
     from_email = EMAIL_ADDRESS
