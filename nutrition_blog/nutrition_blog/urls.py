@@ -8,5 +8,7 @@ urlpatterns = [
         path('', include('nutrition_blog.web.urls')),
         path('accounts/', include('nutrition_blog.accounts.urls')),
         path('email/', include('nutrition_blog.email_client.urls')),
+
+
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

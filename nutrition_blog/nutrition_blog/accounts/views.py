@@ -14,8 +14,6 @@ class UserRegistrationView(views.CreateView):
     form_class = UserRegistrationForm
     template_name = 'create_account_page.html'
 
-    # success_url = reverse_lazy('user home page')
-
     # auto login when user register
     def form_valid(self, form):
         user_valid = super().form_valid(form)

@@ -34,6 +34,7 @@ THIRD_PARTY_APP = (
 
         'django_celery_results',
 
+
 )
 
 INSTALLED_APPS = WEB_APP + DJANGO_APPS + THIRD_PARTY_APP
@@ -127,8 +128,12 @@ CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 
-
 # django-celery-result configuration
 
 CELERY_RESULT_BACKEND = 'django-db'
 CELERY_CACHE_BACKEND = 'django-cache'
+
+# reCaptcha
+
+RECAPTCHA_PUBLIC_KEY = RECAPTCHA_PUBLIC_KEY_RECAPTCHA
+RECAPTCHA_PRIVATE_KEY = RECAPTCHA_PRIVATE_KEY_RECAPTCHA

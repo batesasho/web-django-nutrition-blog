@@ -14,7 +14,7 @@ UserModel = get_user_model()
 @receiver(post_save, sender = UserModel)
 def user_created(sender, instance, created, **kwargs):
     if created:
-        user_profile_creation_after_user_registration.delay(instance.pk)
+        user_profile_creation_after_user_registration.delay(instance.id)
 
         # profile = Profile(
         #         user = instance,

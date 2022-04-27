@@ -15,6 +15,10 @@
 <form class='user_login' action="{% url 'user register' %}" method="post">
     {% csrf_token %}
     {{ form }}
+
+    <button type="submit" class="btn_create_account">Create Мy Account</button>
+
+
     {##}
     {#    <label class="user_info name" for="firstName">#}
     {#        Name <input type="text" name="first_name" maxlength="20" required="" id="firstName" class="first_name">#}
@@ -28,7 +32,7 @@
     {#        Password <input type="password" name="password" maxlength="20" required="" id="password" class="password">#}
     {#    </label>#}
 
-    <button type="submit" class="btn_create_account">Create Мy Account</button>
+
 </form>
 
 </body>
