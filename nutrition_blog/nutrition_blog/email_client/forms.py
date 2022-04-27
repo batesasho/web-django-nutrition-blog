@@ -10,7 +10,6 @@ class ContactForm(forms.Form):
                     attrs = {
                             "placeholder": "Enter subject",
 
-
                     },
             )
     )
@@ -26,3 +25,9 @@ class ContactForm(forms.Form):
                     },
             )
     )
+
+    def clean_subject(self):
+        return self.cleaned_data['subject']
+
+    def clean_message(self):
+        return self.cleaned_data['message']

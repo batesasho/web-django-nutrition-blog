@@ -13,16 +13,12 @@ UserModel = get_user_model()
 
 
 class UserRegistrationForm(auth_forms.UserCreationForm):
-    # adding first_name field&last_name in the form
+
     FIRST_NAME_MAX_LEN = 20
-    # LAST_NAME_MAX_LEN = 20
+
     first_name = forms.CharField(
             max_length = FIRST_NAME_MAX_LEN,
     )
-
-    # last_name = forms.CharField(
-    #         max_length = LAST_NAME_MAX_LEN,
-    # )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -34,7 +30,6 @@ class UserRegistrationForm(auth_forms.UserCreationForm):
                 attrs = {'class': 'user_info password', 'placeholder': 'Repeat password', })
         self.fields['first_name'].widget = forms.TextInput(
                 attrs = {'class': 'user_info name', 'placeholder': 'Enter Your Name', })
-        # self.fields['last_name'].widget = forms.TextInput(attrs = {'class': 'user_info name'})
         self.fields['password1'].help_text = None
         self.fields['password2'].help_text = None
 
@@ -42,7 +37,6 @@ class UserRegistrationForm(auth_forms.UserCreationForm):
         return self.cleaned_data['first_name']  # , self.cleaned_data['last_name']
 
     # save first_name in database during POST
-    #
     def save(self, commit = True):
         user_created = super().save(commit = commit)
         profile = Profile(
@@ -102,7 +96,7 @@ class EditUserProfileBasicInfoForm(forms.ModelForm):
                         }, ),
 
                 'last_name': forms.TextInput(
-                        # max_length = LAST_NAME_MAX_LENGTH,
+
                         attrs = {
                                 'placeholder': 'Enter your last name',
                                 'class': 'user_info last_name',
@@ -157,13 +151,13 @@ class DeleteUserProfileBasicInfoForm(forms.ModelForm):
 
 class UserPasswordResetForm(auth_forms.PasswordResetForm):
     '''
-     checking for existing email address in the database before reset the password
+     checking whether the email address is registered in the database before reset the password.
     '''
 
     def clean_email(self):
         email = self.cleaned_data['email']
         if not UserModel.objects.filter(email__iexact = email, is_active = True).exists():
-            msg = ("There is no user registered with the specified e-mail address, please enter a registered email.")
+            msg = "There is no user registered with the specified e-mail address, please enter a registered email."
             self.add_error('email', msg)
         return email
 

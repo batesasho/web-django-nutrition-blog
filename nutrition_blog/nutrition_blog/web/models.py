@@ -11,20 +11,20 @@ class Articles(models.Model):
     ARTICLE_TAG_NAME_MAX_LEN = 15
 
     article_url_image = models.URLField(
-            default = "https://cfpen.org/wp-content/uploads/2019/05/Eat_Healthy_Blog_15May19.jpg"
+            default = "https://cfpen.org/wp-content/uploads/2019/05/Eat_Healthy_Blog_15May19.jpg",
     )
     article_tag_name = models.CharField(
             max_length = ARTICLE_TAG_NAME_MAX_LEN,
-            default = "Tips"
+            default = "Tips",
     )
 
     article_title = models.CharField(
             max_length = ARTICLE_NAME_MAX_LEN,
-            default = "Healthy Advice"
+            default = "Healthy Advice",
     )
 
     description = models.TextField(
-            default = 'Write down the information about current article'
+            default = 'Write down the information about current article',
     )
 
     user = models.ForeignKey(

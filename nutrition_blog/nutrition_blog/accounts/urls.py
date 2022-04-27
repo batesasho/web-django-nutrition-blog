@@ -1,5 +1,5 @@
-from django.urls import path, reverse_lazy
-from django.views.generic import RedirectView
+from django.urls import path
+
 
 from nutrition_blog.accounts.views import UserRegistrationView, UserLoginView, EditUserProfileView, \
     DeleteUserProfileView, UserLogOutView, UserPasswordResetView, \
