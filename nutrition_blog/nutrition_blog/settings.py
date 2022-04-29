@@ -1,4 +1,5 @@
 from pathlib import Path
+
 from .secret_info import *
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -10,6 +11,7 @@ DEBUG = secret_info.get('DEBUG', False)
 ALLOWED_HOSTS = (
         '127.0.0.1',
         'localhost',
+        'python-web-framework-nutrition.herokuapp.com',
 )
 
 # Application definition
@@ -33,7 +35,6 @@ WEB_APP = (
 THIRD_PARTY_APP = (
 
         'django_celery_results',
-
 
 )
 
@@ -76,6 +77,17 @@ DATABASES = {
         }
 }
 
+# DATABASES = {
+#         'default': {
+#                 'ENGINE': 'django.db.backends.postgresql',
+#                 'NAME': secret_info.postgres_info['database'],
+#                 'USER': secret_info.postgres_info['user'],
+#                 'PASSWORD': secret_info.postgres_info['password'],
+#                 'HOST': secret_info.postgres_info['host'],
+#                 'PORT': secret_info.postgres_info['port'],
+#         }
+# }
+
 AUTH_PASSWORD_VALIDATORS = [
         {
                 'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -102,10 +114,12 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 STATICFILES_DIRS = (
         BASE_DIR / 'static',
 )
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 

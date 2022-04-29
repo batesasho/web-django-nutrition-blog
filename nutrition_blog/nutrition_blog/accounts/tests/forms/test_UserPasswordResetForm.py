@@ -18,6 +18,7 @@ class ResetUserProfileFormTest(TestCase):
     }
 
     def test_user_form__when_email_is_registered_in_DB__expect_form_validation_succeeded(self):
+
         self.client.post(
                 reverse('user register'),
                 data = self.VALID_USER_DATA,

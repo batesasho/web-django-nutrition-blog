@@ -3,6 +3,7 @@ from django.contrib.auth import views as auth_views, login
 from django.urls import reverse_lazy, reverse
 from django.views import generic as views
 
+
 from nutrition_blog.accounts.forms.user_form import UserRegistrationForm, DeleteUserProfileBasicInfoForm, \
     EditUserProfileBasicInfoForm, UserPasswordResetForm, UserPasswordResetConfirmForm, LoginUserForm
 from nutrition_blog.accounts.models import Profile

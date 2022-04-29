@@ -5,8 +5,6 @@ from django import forms
 from django.conf import settings
 from django.contrib.auth import forms as auth_forms, get_user_model
 from nutrition_blog.accounts.models import Profile
-# from captcha.fields import ReCaptchaField
-
 
 UserModel = get_user_model()
 
@@ -18,7 +16,6 @@ class UserRegistrationForm(auth_forms.UserCreationForm):
     first_name = forms.CharField(
             max_length = FIRST_NAME_MAX_LEN,
     )
-    # captcha = ReCaptchaField()
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
